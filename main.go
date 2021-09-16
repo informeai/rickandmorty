@@ -39,6 +39,20 @@ var templateText = `
 		
 	}
 	h1{
+		position: relative;
+		color: transparent;
+	}
+	h1:after{
+		position: absolute;
+		top: 0;
+		left: 40px;
+		width: 100%;
+		height: 100%;
+		content: 'Rick and Morty';
+		color: #0070ff;
+		animation: animateTitle 5s linear infinite;
+	}
+	h1 span{
 		color: #fff;
 	}
 	#container{
@@ -86,11 +100,19 @@ var templateText = `
 		font-size: 1.8rem;
 		font-weight: 500;
 	}
+	@keyframes animateTitle{
+		0%{
+			filter: hue-rotate(0deg);
+		}
+		100%{
+			filter: hue-rotate(360deg);
+		}
+	}
 	</style>
     <title>Rick And Morty</title>
 </head>
 <body>
-	<h1>&#128125; Rick and Morty &#128299;</h1>
+	<h1><span>&#128125;</span> Rick and Morty <span>&#128299;</span></h1>
     <div id="container">
         <div class="characters"></div>
         <div class="title">
